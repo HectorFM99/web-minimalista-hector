@@ -1,8 +1,3 @@
-/* =========================================================
-   Portfolio minimalista — Sarah Chen
-   Mobile-first (375) · Tablet (≥800px) · Desktop (≥1280px)
-   ========================================================= */
-
 /* ---------- Reset ---------- */
 *,
 *::before,
@@ -35,25 +30,13 @@ img {
   display: block;
 }
 
-/* ---------- Tokens ---------- */
-:root {
-  --azul: #0034AD;
-  --magenta: #AB0782;
-  --oliva: #6E660A;
-  --oliva-oscuro: #7F750E;
-  --morado: #5F00AD;
-  --gris: #4F4F4F;
-  --serif: "Source Serif Pro", sans-serif;
-  --mono: "Source Code Pro", sans-serif;
-}
-
 body {
-  font-family: var(--serif);
+  font-family: "Source Serif Pro", sans-serif;
   color: #000;
   background: #fff;
 }
 
-/* Enlace de salto (accesibilidad) */
+/* ---------- Enlace de salto (accesibilidad) ---------- */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -61,7 +44,7 @@ body {
   z-index: 10000;
   padding: 8px 12px;
   background: #fff;
-  font-family: var(--mono);
+  font-family: "Source Code Pro", sans-serif;
   font-size: 14px;
 }
 
@@ -71,35 +54,23 @@ body {
 
 /* ---------- Contenedor de la página ---------- */
 .page {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   width: 100%;
   padding: 0 20px;
   background: #fff;
-  overflow: clip;
+  overflow: hidden;
 }
 
 /* ---------- Navegación ---------- */
 .nav {
-  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px 20px 60px;
-}
-
-/* Filete inferior superpuesto (no altera la altura) */
-.nav::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-bottom: 0.5px solid var(--gris);
+  border-bottom: 0.5px solid #4F4F4F;
 }
 
 .brand {
@@ -110,17 +81,16 @@ body {
   gap: 20px;
 }
 
-.brand__name {
-  font-family: var(--serif);
-  font-weight: 400;
+.brand-name {
   font-size: 20px;
+  font-weight: 400;
   line-height: 1.52;
   letter-spacing: -0.18px;
-  color: #000;
   white-space: nowrap;
 }
 
-.brand__avatar {
+/* Foto de perfil: círculo con la foto recortada por dentro */
+.avatar {
   position: relative;
   display: block;
   width: 40.169px;
@@ -130,16 +100,29 @@ body {
   box-shadow: 0 2.667px 2.667px 0 rgba(0, 0, 0, 0.25);
 }
 
-.brand__avatar img {
+.avatar img {
   position: absolute;
   top: -56.81%;
   left: -99.7%;
   width: 259.92%;
   height: 320.36%;
   max-width: none;
+
+  /* El giro sale del centro del círculo (el eje de la foto), no del centro de la imagen */
+  transform-origin: 57.59% 33.34%;
+  transform: rotate(0deg);
+
+  /* Rebote cuando vuelve a su posición original */
+  transition: transform 0.7s cubic-bezier(0.34, 1.9, 0.64, 1);
 }
 
-.nav__menu {
+/* Al pasar el ratón la foto se tuerce 15 grados a la izquierda y rebota al llegar */
+.avatar:hover img {
+  transform: rotate(-15deg);
+  transition: transform 0.5s cubic-bezier(0.34, 1.9, 0.64, 1);
+}
+
+.menu {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -147,36 +130,35 @@ body {
   line-height: 1.03;
 }
 
-.nav__link {
+.menu-link {
   display: block;
-  font-family: var(--mono);
-  font-weight: 400;
+  font-family: "Source Code Pro", sans-serif;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.03;
   letter-spacing: -0.72px;
   white-space: nowrap;
   cursor: pointer;
 }
 
-.nav__link--home {
-  color: var(--magenta);
+.home {
+  color: #AB0782;
 }
 
-.nav__link--about {
-  color: var(--oliva-oscuro);
+.about {
+  color: #7F750E;
 }
 
-.nav__link--contact {
-  color: var(--morado);
+.contact {
+  color: #5F00AD;
 }
 
-/* ---------- Tipografía grande (títulos, textos, pie) ---------- */
+/* ---------- Textos grandes (introducción, títulos y pie) ---------- */
 .intro p,
-.project__title,
-.closing__text,
-.footer__copy,
-.footer__link {
-  font-family: var(--serif);
+.project-title,
+.closing-text,
+.copyright,
+.footer-link {
   font-weight: 300;
   font-size: 28px;
   line-height: 1.35;
@@ -199,7 +181,6 @@ body {
 
 /* ---------- Proyectos ---------- */
 .project {
-  position: relative;
   width: 100%;
   max-width: 1500px;
   display: flex;
@@ -209,43 +190,41 @@ body {
   padding: 50px 0 80px;
 }
 
-/* Filete superior superpuesto (no altera la altura, como en el diseño) */
-.project::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-top: 0.5px solid var(--c);
+/* Colores de cada proyecto.
+   El texto y el filete de arriba comparten color porque todo lo de
+   dentro hereda el color del proyecto. */
+.yoga {
+  color: #0034AD;
+  border-top: 0.5px solid;
 }
 
-.project--yoga {
-  --c: var(--azul);
-  --c-btn: var(--azul);
+.artwork {
+  color: #AB0782;
+  border-top: 0.5px solid;
 }
 
-.project--artwork {
-  --c: var(--magenta);
-  --c-btn: var(--magenta);
+.magazine {
+  color: #6E660A;
+  border-top: 0.5px solid;
 }
 
-.project--magazine {
-  --c: var(--oliva);
-  --c-btn: var(--oliva-oscuro);
+.italy {
+  color: #5F00AD;
+  border-top: 0.5px solid;
 }
 
-.project--italy {
-  --c: var(--morado);
-  --c-btn: var(--morado);
-}
-
-.project--castro {
-  --c: var(--azul);
-  --c-btn: var(--azul);
+.castro {
+  color: #0034AD;
+  border-top: 0.5px solid;
   gap: 88px;
 }
 
-.project__info {
+/* El botón de este proyecto va con un tono más oscuro */
+.magazine .btn {
+  color: #7F750E;
+}
+
+.project-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -253,58 +232,45 @@ body {
   width: 100%;
 }
 
-.project__category {
-  font-family: var(--mono);
-  font-weight: 500;
+.category {
+  font-family: "Source Code Pro", sans-serif;
   font-size: 12px;
+  font-weight: 500;
   line-height: 1.03;
   letter-spacing: -0.0648px;
-  color: var(--c);
   text-decoration: underline;
   text-underline-position: from-font;
 }
 
-.project__title {
-  color: var(--c);
-}
-
 /* Botón "Explore" / "Discover..." */
 .btn {
-  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   padding: 4px 10px 7px;
-  font-family: var(--mono);
-  font-weight: 400;
+  border: 1px solid; /* el color lo hereda del texto */
+  font-family: "Source Code Pro", sans-serif;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.03;
   letter-spacing: -0.72px;
-  white-space: pre;
-  color: var(--c-btn);
+  white-space: nowrap;
   cursor: pointer;
 }
 
-/* Borde superpuesto para no alterar la altura */
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--c-btn);
-  pointer-events: none;
-}
-
-.project__media {
+/* Imagen del proyecto: siempre cuadrada */
+.project-image {
   position: relative;
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
 }
 
-.project__media img {
+.project-image img {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   max-width: none;
@@ -312,19 +278,18 @@ body {
   object-position: 50% 50%;
 }
 
-.project--artwork .project__media,
-.project--magazine .project__media,
-.project--italy .project__media {
+.artwork .project-image,
+.magazine .project-image,
+.italy .project-image {
   border-radius: 4px;
 }
 
-.project--castro .project__media {
+.castro .project-image {
   background-color: #d9d9d9;
 }
 
-/* La pintura abstracta va ligeramente ampliada dentro del marco */
-.project--artwork .project__media img {
-  inset: auto;
+/* La pintura va un poco ampliada dentro de su marco */
+.artwork .project-image img {
   top: -2.74%;
   left: -3.09%;
   width: 106.19%;
@@ -333,7 +298,6 @@ body {
 
 /* ---------- Cierre ---------- */
 .closing {
-  --c-btn: #000;
   width: 100%;
   max-width: 1500px;
   display: flex;
@@ -345,17 +309,14 @@ body {
 
 /* ---------- Pie de página ---------- */
 .footer {
-  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   padding: 0 0 80px;
 }
 
-.footer__links {
-  position: relative;
+.footer-links {
   width: 100%;
   max-width: 1500px;
   display: flex;
@@ -363,49 +324,38 @@ body {
   align-items: flex-start;
   gap: 40px;
   padding: 30px 0 150px;
+  border-top: 1px solid #4F4F4F;
 }
 
-/* Filete superior superpuesto (no altera la altura) */
-.footer__links::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-top: 1px solid var(--gris);
-}
-
-.footer__link {
+.footer-link {
   white-space: nowrap;
   text-decoration: underline;
   text-underline-position: from-font;
 }
 
-.footer__link--email {
-  color: var(--magenta);
+.email {
+  color: #AB0782;
 }
 
-.footer__link--behance {
-  color: var(--morado);
+.behance {
+  color: #5F00AD;
 }
 
-.footer__link--linkedin {
-  color: var(--azul);
+.linkedin {
+  color: #0034AD;
 }
 
-.footer__copy {
+.copyright {
   width: 100%;
 }
 
-/* =========================================================
-   TABLET — desde 800px
-   ========================================================= */
+/*Tamaño tablet (800px) */
 @media (min-width: 800px) {
   .page {
     padding: 0 50px;
   }
 
-  /* Navegación fija, en fila */
+  /* Navegación fija arriba del todo, en fila */
   .nav {
     position: fixed;
     top: 0;
@@ -414,10 +364,7 @@ body {
     z-index: 9999;
     align-items: center;
     padding: 30px 50px 100px;
-  }
-
-  .nav::after {
-    display: none;
+    border-bottom: none;
   }
 
   .brand {
@@ -426,19 +373,19 @@ body {
     gap: 20px;
   }
 
-  .brand__name {
+  .brand-name {
     font-size: 22px;
     letter-spacing: -0.2178px;
   }
 
-  .brand__avatar {
+  .avatar {
     order: -1;
     width: 50px;
     height: 49.789px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
-  .nav__menu {
+  .menu {
     flex-direction: row;
     align-items: center;
     gap: 10px;
@@ -446,16 +393,16 @@ body {
 
   /* Textos grandes */
   .intro p,
-  .project__title,
-  .closing__text,
-  .footer__copy,
-  .footer__link {
+  .project-title,
+  .closing-text,
+  .copyright,
+  .footer-link {
     font-size: 36px;
     line-height: 1.25;
     letter-spacing: -0.3888px;
   }
 
-  .project__category {
+  .category {
     font-size: 14px;
     letter-spacing: -0.0882px;
   }
@@ -470,12 +417,8 @@ body {
     align-items: flex-start;
   }
 
-  .project__info {
-    flex: 1 0 0;
-    min-width: 1px;
-  }
-
-  .project__media {
+  .project-info,
+  .project-image {
     flex: 1 0 0;
     min-width: 1px;
   }
@@ -485,33 +428,31 @@ body {
   }
 
   /* Enlaces del pie en fila, repartidos */
-  .footer__links {
+  .footer-links {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
 }
 
-/* =========================================================
-   DESKTOP — desde 1280px
-   ========================================================= */
-@media (min-width: 1280px) {
-  .brand__name {
+/*Tamaño escritorio (1000px)*/
+@media (min-width: 1000px) {
+  .brand-name {
     font-size: 24px;
     letter-spacing: -0.2592px;
   }
 
   .intro p,
-  .project__title,
-  .closing__text,
-  .footer__copy,
-  .footer__link {
+  .project-title,
+  .closing-text,
+  .copyright,
+  .footer-link {
     font-size: 50px;
     line-height: 1.2;
     letter-spacing: -1.125px;
   }
 
-  .project__category {
+  .category {
     font-size: 16px;
     letter-spacing: -0.1152px;
   }
@@ -525,7 +466,7 @@ body {
     padding: 30px 120px 120px 0;
   }
 
-  .closing__text {
+  .closing-text {
     width: 855px;
     max-width: 100%;
   }
