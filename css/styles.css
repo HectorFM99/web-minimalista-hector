@@ -155,6 +155,7 @@ body {
 
 /* ---------- Textos grandes (introducción, títulos y pie) ---------- */
 .intro p,
+.more-text,
 .project-title,
 .closing-text,
 .copyright,
@@ -349,6 +350,121 @@ body {
   width: 100%;
 }
 
+/* ---------- Página About ---------- */
+/* La introducción del About lleva otro espaciado que la de la portada */
+.about-intro {
+  padding: 30px 0 100px;
+}
+
+/* Hueco en blanco que separa los dos párrafos: siempre a 50px */
+.intro .intro-spacer {
+  font-size: 50px;
+}
+
+/* ---------- Right now I am... ---------- */
+.now {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 0 100px;
+}
+
+.now-head {
+  width: 100%;
+  padding: 40px 0;
+  border-top: 0.75px solid #4F4F4F;
+}
+
+/* Las filas no llevan espacio entre ellas, solo el filete de arriba */
+.now-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.now-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 19px;
+  padding: 30px 0;
+  border-top: 0.75px solid #4F4F4F;
+}
+
+.now-title,
+.now-label {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.0648px;
+  white-space: nowrap;
+  color: #000;
+}
+
+/* Foto del About: la foto va más grande y recortada dentro del marco */
+.now-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 571.83 / 569.42;
+  overflow: hidden;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.now-photo img {
+  position: absolute;
+  top: -18.17%;
+  left: -11.42%;
+  width: 123.05%;
+  height: 151.66%;
+  max-width: none;
+}
+
+/* ---------- More projects ---------- */
+.more {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 30px 0;
+  border-top: 0.75px solid #4F4F4F;
+}
+
+.more-link {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.0648px;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  color: #000;
+}
+
+/* Las tres tarjetas van una debajo de otra */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 50px 0;
+}
+
+/* El botón de la tarjeta de la revista va subrayado */
+.card.magazine .btn {
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
+
 /*Tamaño tablet (800px) */
 @media (min-width: 800px) {
   .page {
@@ -393,6 +509,7 @@ body {
 
   /* Textos grandes */
   .intro p,
+  .more-text,
   .project-title,
   .closing-text,
   .copyright,
@@ -433,6 +550,24 @@ body {
     justify-content: space-between;
     align-items: flex-start;
   }
+
+  /* ---- About ---- */
+  .about-intro {
+    padding: 200px 0 100px;
+  }
+
+  /* Textos pequeños del About */
+  .now-title,
+  .now-label,
+  .more-link {
+    font-size: 14px;
+    letter-spacing: -0.0882px;
+  }
+
+  /* La tarjeta pasa a tener el texto a la izquierda y la foto a la derecha */
+  .card {
+    flex-direction: row;
+  }
 }
 
 /*Tamaño escritorio (1000px)*/
@@ -443,6 +578,7 @@ body {
   }
 
   .intro p,
+  .more-text,
   .project-title,
   .closing-text,
   .copyright,
@@ -469,5 +605,52 @@ body {
   .closing-text {
     width: 855px;
     max-width: 100%;
+  }
+
+  /* ---- About ---- */
+  .about-intro {
+    padding: 200px 0 100px;
+    height: auto;
+  }
+
+  /* Textos pequeños del About */
+  .now-title,
+  .now-label,
+  .more-link {
+    font-size: 16px;
+    letter-spacing: -0.1152px;
+  }
+
+  /* El enlace "More projects" se queda en gris */
+  .more-link {
+    color: #4F4F4F;
+  }
+
+  /* La sección "Right now..." pasa a dos columnas iguales */
+  .now {
+    flex-direction: row;
+  }
+
+  .now-head,
+  .now-list {
+    flex: 1 0 0;
+    min-width: 1px;
+  }
+
+  /* Las tarjetas se reparten en fila y cada una vuelve a texto arriba */
+  .cards {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .card {
+    flex: 1 0 0;
+    min-width: 1px;
+    flex-direction: column;
+  }
+
+  .card .project-info,
+  .card .project-image {
+    flex: none;
   }
 }
