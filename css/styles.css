@@ -155,6 +155,8 @@ body {
 
 /* ---------- Textos grandes (introducción, títulos y pie) ---------- */
 .intro p,
+.project-intro p,
+.shot-text p,
 .more-text,
 .project-title,
 .closing-text,
@@ -465,6 +467,88 @@ body {
   text-underline-position: from-font;
 }
 
+/* ---------- Página Project (Echoes of Italy) ---------- */
+/* Cabecera: la etiqueta y el título van en morado, el resto en negro */
+.project-intro {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  padding: 72px 100px 80px 0;
+}
+
+.project-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  color: #5F00AD;
+}
+
+.project-lead {
+  color: #000;
+}
+
+/* ---------- Fotos del proyecto ---------- */
+/* Cada foto lleva su margen para que la página no quede toda seguida */
+.shot {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 30px 0 50px;
+}
+
+/* El formato lo marca la foto y el recorte va por dentro */
+.shot img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.shot-01 img {
+  aspect-ratio: 700 / 932;
+}
+
+.shot-03 img {
+  aspect-ratio: 980 / 654;
+}
+
+.shot-04 img {
+  aspect-ratio: 1180 / 684;
+}
+
+.shot-05 img {
+  aspect-ratio: 920 / 614;
+}
+
+/* En el móvil esta sale cuadrada */
+.shot-06 img {
+  aspect-ratio: 1 / 1;
+}
+
+.shot-caption {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.72px;
+  color: #313131;
+}
+
+/* El pie de la primera foto va centrado bajo la imagen */
+.shot-01 .shot-caption {
+  text-align: center;
+}
+
+/* Texto a media página entre las fotos */
+.shot-text {
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 0 80px;
+}
+
 /*Tamaño tablet (800px) */
 @media (min-width: 800px) {
   .page {
@@ -509,6 +593,8 @@ body {
 
   /* Textos grandes */
   .intro p,
+  .project-intro p,
+  .shot-text p,
   .more-text,
   .project-title,
   .closing-text,
@@ -568,6 +654,38 @@ body {
   .card {
     flex-direction: row;
   }
+
+  /* ---- Project ---- */
+  .project-intro {
+    padding: 200px 100px 80px 0;
+  }
+
+  .shot {
+    padding: 30px 0 80px;
+  }
+
+  /* Las fotos laterales dejan hueco para componer la página */
+  .shot-01,
+  .shot-05 {
+    padding: 30px 100px 80px;
+  }
+
+  .shot-02 {
+    padding: 30px 200px 80px 0;
+  }
+
+  .shot-03 {
+    padding: 30px 0 80px 200px;
+  }
+
+  /* En tablet esta foto ya no va cuadrada */
+  .shot-06 img {
+    aspect-ratio: 700 / 400;
+  }
+
+  .shot-text {
+    padding: 0 100px 80px 0;
+  }
 }
 
 /*Tamaño escritorio (1000px)*/
@@ -578,6 +696,8 @@ body {
   }
 
   .intro p,
+  .project-intro p,
+  .shot-text p,
   .more-text,
   .project-title,
   .closing-text,
@@ -652,5 +772,23 @@ body {
   .card .project-info,
   .card .project-image {
     flex: none;
+  }
+
+  /* ---- Project ---- */
+  /* Las fotos ganan margen a los lados a medida que crece la página */
+  .shot-01 {
+    padding: 30px 240px 80px;
+  }
+
+  .shot-02 {
+    padding: 30px 300px 80px 0;
+  }
+
+  .shot-05 {
+    padding: 30px 130px 80px;
+  }
+
+  .shot-06 img {
+    aspect-ratio: 1180 / 644;
   }
 }
