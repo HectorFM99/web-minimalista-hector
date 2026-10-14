@@ -81,7 +81,7 @@ body {
   gap: 20px;
 }
 
-.brand-name {
+.brand__name {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.52;
@@ -90,7 +90,7 @@ body {
 }
 
 /* Foto de perfil: círculo con la foto recortada por dentro */
-.avatar {
+.brand__avatar {
   position: relative;
   display: block;
   width: 40.169px;
@@ -100,7 +100,7 @@ body {
   box-shadow: 0 2.667px 2.667px 0 rgba(0, 0, 0, 0.25);
 }
 
-.avatar img {
+.brand__photo {
   position: absolute;
   top: -56.81%;
   left: -99.7%;
@@ -117,7 +117,7 @@ body {
 }
 
 /* Al pasar el ratón la foto se tuerce 15 grados a la izquierda y rebota al llegar */
-.avatar:hover img {
+.brand__avatar:hover .brand__photo {
   transform: rotate(-15deg);
   transition: transform 0.5s cubic-bezier(0.34, 1.9, 0.64, 1);
 }
@@ -130,7 +130,7 @@ body {
   line-height: 1.03;
 }
 
-.menu-link {
+.menu__link {
   display: block;
   font-family: "Source Code Pro", sans-serif;
   font-size: 16px;
@@ -141,27 +141,28 @@ body {
   cursor: pointer;
 }
 
-.home {
+.menu__link--home {
   color: #AB0782;
 }
 
-.about {
+.menu__link--about {
   color: #7F750E;
 }
 
-.contact {
+.menu__link--contact {
   color: #5F00AD;
 }
 
 /* ---------- Textos grandes (introducción, títulos y pie) ---------- */
-.intro p,
-.project-intro p,
-.shot-text p,
-.more-text,
-.project-title,
-.closing-text,
-.copyright,
-.footer-link {
+.intro__text,
+.project-intro__title,
+.project-intro__lead,
+.shot-text__text,
+.more__text,
+.project__title,
+.closing__text,
+.footer__copyright,
+.footer__link {
   font-weight: 300;
   font-size: 28px;
   line-height: 1.35;
@@ -196,38 +197,39 @@ body {
 /* Colores de cada proyecto.
    El texto y el filete de arriba comparten color porque todo lo de
    dentro hereda el color del proyecto. */
-.yoga {
+.project--yoga {
   color: #0034AD;
   border-top: 0.5px solid;
 }
 
-.artwork {
+.project--artwork {
   color: #AB0782;
   border-top: 0.5px solid;
 }
 
-.magazine {
+.project--magazine {
   color: #6E660A;
   border-top: 0.5px solid;
 }
 
-.italy {
+.project--italy {
   color: #5F00AD;
   border-top: 0.5px solid;
 }
 
-.castro {
+.project--castro {
   color: #0034AD;
   border-top: 0.5px solid;
   gap: 88px;
 }
 
-/* El botón de este proyecto va con un tono más oscuro */
-.magazine .btn {
-  color: #7F750E;
+/* Las tarjetas de "More projects" son el mismo bloque en versión compacta */
+.project--card {
+  gap: 50px;
+  padding: 50px 0;
 }
 
-.project-info {
+.project__info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -235,7 +237,7 @@ body {
   width: 100%;
 }
 
-.category {
+.project__category {
   font-family: "Source Code Pro", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -246,7 +248,7 @@ body {
 }
 
 /* Botón "Explore" / "Discover..." */
-.btn {
+.button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -262,15 +264,26 @@ body {
   cursor: pointer;
 }
 
+/* El botón de la revista va con un tono más oscuro */
+.button--dark {
+  color: #7F750E;
+}
+
+/* En la tarjeta de la revista el botón además va subrayado */
+.button--underlined {
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
+
 /* Imagen del proyecto: siempre cuadrada */
-.project-image {
+.project__image {
   position: relative;
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
 }
 
-.project-image img {
+.project__photo {
   position: absolute;
   top: 0;
   left: 0;
@@ -281,18 +294,18 @@ body {
   object-position: 50% 50%;
 }
 
-.artwork .project-image,
-.magazine .project-image,
-.italy .project-image {
+.project--artwork .project__image,
+.project--magazine .project__image,
+.project--italy .project__image {
   border-radius: 4px;
 }
 
-.castro .project-image {
+.project--castro .project__image {
   background-color: #d9d9d9;
 }
 
 /* La pintura va un poco ampliada dentro de su marco */
-.artwork .project-image img {
+.project--artwork .project__photo {
   top: -2.74%;
   left: -3.09%;
   width: 106.19%;
@@ -319,7 +332,7 @@ body {
   padding: 0 0 80px;
 }
 
-.footer-links {
+.footer__links {
   width: 100%;
   max-width: 1500px;
   display: flex;
@@ -330,36 +343,36 @@ body {
   border-top: 1px solid #4F4F4F;
 }
 
-.footer-link {
+.footer__link {
   white-space: nowrap;
   text-decoration: underline;
   text-underline-position: from-font;
 }
 
-.email {
+.footer__link--email {
   color: #AB0782;
 }
 
-.behance {
+.footer__link--behance {
   color: #5F00AD;
 }
 
-.linkedin {
+.footer__link--linkedin {
   color: #0034AD;
 }
 
-.copyright {
+.footer__copyright {
   width: 100%;
 }
 
 /* ---------- Página About ---------- */
 /* La introducción del About lleva otro espaciado que la de la portada */
-.about-intro {
+.intro--about {
   padding: 30px 0 100px;
 }
 
 /* Hueco en blanco que separa los dos párrafos: siempre a 50px */
-.intro .intro-spacer {
+.intro__spacer {
   font-size: 50px;
 }
 
@@ -373,20 +386,20 @@ body {
   padding: 0 0 100px;
 }
 
-.now-head {
+.now__head {
   width: 100%;
   padding: 40px 0;
   border-top: 0.75px solid #4F4F4F;
 }
 
 /* Las filas no llevan espacio entre ellas, solo el filete de arriba */
-.now-list {
+.now__list {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.now-row {
+.now__row {
   display: flex;
   align-items: flex-start;
   gap: 19px;
@@ -394,8 +407,8 @@ body {
   border-top: 0.75px solid #4F4F4F;
 }
 
-.now-title,
-.now-label {
+.now__title,
+.now__label {
   font-family: "Source Code Pro", sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -406,7 +419,7 @@ body {
 }
 
 /* Foto del About: la foto va más grande y recortada dentro del marco */
-.now-photo {
+.now__figure {
   position: relative;
   width: 100%;
   aspect-ratio: 571.83 / 569.42;
@@ -414,7 +427,7 @@ body {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.now-photo img {
+.now__photo {
   position: absolute;
   top: -18.17%;
   left: -11.42%;
@@ -434,7 +447,7 @@ body {
   border-top: 0.75px solid #4F4F4F;
 }
 
-.more-link {
+.more__link {
   font-family: "Source Code Pro", sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -446,25 +459,10 @@ body {
 }
 
 /* Las tres tarjetas van una debajo de otra */
-.cards {
+.more__cards {
   display: flex;
   flex-direction: column;
   gap: 48px;
-}
-
-.card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 50px;
-  padding: 50px 0;
-}
-
-/* El botón de la tarjeta de la revista va subrayado */
-.card.magazine .btn {
-  text-decoration: underline;
-  text-underline-position: from-font;
 }
 
 /* ---------- Página Project (Echoes of Italy) ---------- */
@@ -478,15 +476,26 @@ body {
   padding: 72px 100px 80px 0;
 }
 
-.project-heading {
+.project-intro__heading {
   display: flex;
   flex-direction: column;
   gap: 19px;
   color: #5F00AD;
 }
 
-.project-lead {
+.project-intro__lead {
   color: #000;
+}
+
+/* Las etiquetas de la cabecera y de los proyectos comparten tipografía */
+.project-intro__category {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.0648px;
+  text-decoration: underline;
+  text-underline-position: from-font;
 }
 
 /* ---------- Fotos del proyecto ---------- */
@@ -501,35 +510,35 @@ body {
 }
 
 /* El formato lo marca la foto y el recorte va por dentro */
-.shot img {
+.shot__photo {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: 50% 50%;
 }
 
-.shot-01 img {
+.shot--01 .shot__photo {
   aspect-ratio: 700 / 932;
 }
 
-.shot-03 img {
+.shot--03 .shot__photo {
   aspect-ratio: 980 / 654;
 }
 
-.shot-04 img {
+.shot--04 .shot__photo {
   aspect-ratio: 1180 / 684;
 }
 
-.shot-05 img {
+.shot--05 .shot__photo {
   aspect-ratio: 920 / 614;
 }
 
 /* En el móvil esta sale cuadrada */
-.shot-06 img {
+.shot--06 .shot__photo {
   aspect-ratio: 1 / 1;
 }
 
-.shot-caption {
+.shot__caption {
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
@@ -538,7 +547,7 @@ body {
 }
 
 /* El pie de la primera foto va centrado bajo la imagen */
-.shot-01 .shot-caption {
+.shot--01 .shot__caption {
   text-align: center;
 }
 
@@ -573,12 +582,12 @@ body {
     gap: 20px;
   }
 
-  .brand-name {
+  .brand__name {
     font-size: 22px;
     letter-spacing: -0.2178px;
   }
 
-  .avatar {
+  .brand__avatar {
     order: -1;
     width: 50px;
     height: 49.789px;
@@ -592,20 +601,22 @@ body {
   }
 
   /* Textos grandes */
-  .intro p,
-  .project-intro p,
-  .shot-text p,
-  .more-text,
-  .project-title,
-  .closing-text,
-  .copyright,
-  .footer-link {
+  .intro__text,
+  .project-intro__title,
+  .project-intro__lead,
+  .shot-text__text,
+  .more__text,
+  .project__title,
+  .closing__text,
+  .footer__copyright,
+  .footer__link {
     font-size: 36px;
     line-height: 1.25;
     letter-spacing: -0.3888px;
   }
 
-  .category {
+  .project__category,
+  .project-intro__category {
     font-size: 14px;
     letter-spacing: -0.0882px;
   }
@@ -620,8 +631,8 @@ body {
     align-items: flex-start;
   }
 
-  .project-info,
-  .project-image {
+  .project__info,
+  .project__image {
     flex: 1 0 0;
     min-width: 1px;
   }
@@ -631,28 +642,23 @@ body {
   }
 
   /* Enlaces del pie en fila, repartidos */
-  .footer-links {
+  .footer__links {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
 
   /* ---- About ---- */
-  .about-intro {
+  .intro--about {
     padding: 200px 0 100px;
   }
 
   /* Textos pequeños del About */
-  .now-title,
-  .now-label,
-  .more-link {
+  .now__title,
+  .now__label,
+  .more__link {
     font-size: 14px;
     letter-spacing: -0.0882px;
-  }
-
-  /* La tarjeta pasa a tener el texto a la izquierda y la foto a la derecha */
-  .card {
-    flex-direction: row;
   }
 
   /* ---- Project ---- */
@@ -665,21 +671,21 @@ body {
   }
 
   /* Las fotos laterales dejan hueco para componer la página */
-  .shot-01,
-  .shot-05 {
+  .shot--01,
+  .shot--05 {
     padding: 30px 100px 80px;
   }
 
-  .shot-02 {
+  .shot--02 {
     padding: 30px 200px 80px 0;
   }
 
-  .shot-03 {
+  .shot--03 {
     padding: 30px 0 80px 200px;
   }
 
   /* En tablet esta foto ya no va cuadrada */
-  .shot-06 img {
+  .shot--06 .shot__photo {
     aspect-ratio: 700 / 400;
   }
 
@@ -690,25 +696,27 @@ body {
 
 /*Tamaño escritorio (1000px)*/
 @media (min-width: 1000px) {
-  .brand-name {
+  .brand__name {
     font-size: 24px;
     letter-spacing: -0.2592px;
   }
 
-  .intro p,
-  .project-intro p,
-  .shot-text p,
-  .more-text,
-  .project-title,
-  .closing-text,
-  .copyright,
-  .footer-link {
+  .intro__text,
+  .project-intro__title,
+  .project-intro__lead,
+  .shot-text__text,
+  .more__text,
+  .project__title,
+  .closing__text,
+  .footer__copyright,
+  .footer__link {
     font-size: 50px;
     line-height: 1.2;
     letter-spacing: -1.125px;
   }
 
-  .category {
+  .project__category,
+  .project-intro__category {
     font-size: 16px;
     letter-spacing: -0.1152px;
   }
@@ -722,27 +730,27 @@ body {
     padding: 30px 120px 120px 0;
   }
 
-  .closing-text {
+  .closing__text {
     width: 855px;
     max-width: 100%;
   }
 
   /* ---- About ---- */
-  .about-intro {
+  .intro--about {
     padding: 200px 0 100px;
     height: auto;
   }
 
   /* Textos pequeños del About */
-  .now-title,
-  .now-label,
-  .more-link {
+  .now__title,
+  .now__label,
+  .more__link {
     font-size: 16px;
     letter-spacing: -0.1152px;
   }
 
   /* El enlace "More projects" se queda en gris */
-  .more-link {
+  .more__link {
     color: #4F4F4F;
   }
 
@@ -751,44 +759,44 @@ body {
     flex-direction: row;
   }
 
-  .now-head,
-  .now-list {
+  .now__head,
+  .now__list {
     flex: 1 0 0;
     min-width: 1px;
   }
 
   /* Las tarjetas se reparten en fila y cada una vuelve a texto arriba */
-  .cards {
+  .more__cards {
     flex-direction: row;
     align-items: flex-start;
   }
 
-  .card {
+  .project--card {
     flex: 1 0 0;
     min-width: 1px;
     flex-direction: column;
   }
 
-  .card .project-info,
-  .card .project-image {
+  .project--card .project__info,
+  .project--card .project__image {
     flex: none;
   }
 
   /* ---- Project ---- */
   /* Las fotos ganan margen a los lados a medida que crece la página */
-  .shot-01 {
+  .shot--01 {
     padding: 30px 240px 80px;
   }
 
-  .shot-02 {
+  .shot--02 {
     padding: 30px 300px 80px 0;
   }
 
-  .shot-05 {
+  .shot--05 {
     padding: 30px 130px 80px;
   }
 
-  .shot-06 img {
+  .shot--06 .shot__photo {
     aspect-ratio: 1180 / 644;
   }
 }
