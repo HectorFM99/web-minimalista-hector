@@ -1,4 +1,4 @@
-var visitas = 0;
+let visitas = 0;
 var mensajeSinUsar = "esto no se usa";
 
 function contar(nombre) {
